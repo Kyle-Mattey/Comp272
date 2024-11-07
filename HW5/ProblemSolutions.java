@@ -1,3 +1,5 @@
+package Hw5;
+
 /******************************************************************
  *
  *   Kyle Mattey  /  Section 002
@@ -30,11 +32,17 @@ class ProblemSolutions {
      * @return      - returns boolean value B is a subset of A.
      */
 
-    public boolean isSubset(int list1[], int list2[]) {
-
-        // ADD YOU CODE HERE -- DON'T FORGET TO ADD YOR NAME AT TOP OF FILE
-
-        return false;
+    public boolean isSubset(int[] list1, int[] list2) {
+        Set<Integer> set = new HashSet<>();
+        for (int num : list1) {
+            set.add(num);
+        }
+        for (int num : list2) {
+            if (!set.contains(num)) {
+                return false; // If any element in list2 is not in list1, return false
+            }
+        }
+        return true; // All elements in list2 are in list1
     }
 
 
@@ -52,10 +60,14 @@ class ProblemSolutions {
      */
 
     public int findKthLargest(int[] array, int k) {
-
-        // ADD YOUR CODE HERE
-
-        return 0;
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+        for (int num : array) {
+            minHeap.add(num);
+            if (minHeap.size() > k) {
+                minHeap.poll(); // Keep only the largest k elements in the heap
+            }
+        }
+        return minHeap.peek(); // The root of the heap is the k-th largest element
     }
 
 
@@ -73,10 +85,10 @@ class ProblemSolutions {
      */
 
     public int[] sort2Arrays(int[] array1, int[] array2) {
-
-        // ADD YOU CODE HERE
-
-        return null;
+        int[] mergedArray = new int[array1.length + array2.length];
+        System.arraycopy(array1, 0, mergedArray, 0, array1.length);
+        System.arraycopy(array2, 0, mergedArray, array1.length, array2.length);
+        Arrays.sort(mergedArray); // Sort the merged array
+        return mergedArray;
     }
-
 }
