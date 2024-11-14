@@ -1,3 +1,5 @@
+package Hw6;
+
 
 /**********************************************************
  *
@@ -58,7 +60,7 @@ public class Main {
         if ( !pq.isEmpty() && pq.peek().value() != "element5" && pq.peek().priority() != 5 ) {
             PriorityQueueFail = true;
             System.out.println("Priority Queue Test 1 Failure, value: "
-                               + pq.peek().value() + " priority: " + pq.peek().priority());
+                    + pq.peek().value() + " priority: " + pq.peek().priority());
         }
 
         if ( ! PriorityQueueFail && !pq.contains("element3")) {
@@ -111,7 +113,7 @@ public class Main {
          */
 
         String[] verifyOrder1 = { "element5", "element1", "element2", "element3",
-                                 "element4", "element6" };
+                "element4", "element6" };
 
         for (int i=0; !PriorityQueueFail && !pq.isEmpty() ; i++ ) {
             element = pq.remove();
@@ -126,7 +128,7 @@ public class Main {
             if ( element.value != verifyOrder1[i] ) {
                 PriorityQueueFail = true;
                 System.out.println("Priority Queue Test 6 Failure, queue returned: "
-                                    + element.value() + " should be: " + verifyOrder1[i]);
+                        + element.value() + " should be: " + verifyOrder1[i]);
                 break;
             }
         }
@@ -223,7 +225,7 @@ public class Main {
         if ( ! ps.showDuplicates(sort1InputList1).equals(sort1AnswerList1) ) {
             Sorting1Fail = true;
             System.out.println("Sorting 1 Test 1 Failure, returned String: "
-                                + ps.showDuplicates(sort1InputList1));
+                    + ps.showDuplicates(sort1InputList1));
         }
 
 
